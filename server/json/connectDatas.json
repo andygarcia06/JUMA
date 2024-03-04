@@ -1,0 +1,140 @@
+[
+  {
+    "username": "user1@example.com",
+    "password": "password1",
+    "pseudo": "User1Pseudo",
+    "programmes": [
+      "thales",
+      "thales",
+      "thales",
+      "Danone",
+      "Danone",
+      "Danone",
+      "EDF",
+      "GRDF"
+    ]
+  },
+  {
+    "username": "andygarcia@fronthand.fr",
+    "password": "fronthand",
+    "pseudo": "fronthand",
+    "programmes": [
+      "thales",
+      "thales",
+      "p8"
+    ]
+  },
+  {
+    "username": "andygarcia@live.fr",
+    "password": "ansy9362",
+    "pseudo": "andy",
+    "role": "utilisateur",
+    "programmes": [
+      "p5",
+      "p5",
+      "p5"
+    ]
+  },
+  {
+    "username": "clia",
+    "password": "clia",
+    "pseudo": "clia",
+    "role": "utilisateur",
+    "programmes": [
+      "programme 3"
+    ]
+  },
+  {
+    "username": "sylvie",
+    "password": "sylvie",
+    "pseudo": "sylvie",
+    "role": "utilisateur"
+  },
+  {
+    "username": "gali",
+    "password": "fali",
+    "pseudo": "gali",
+    "role": "utilisateur",
+    "programmes": [
+      "thales",
+      "programme 3"
+    ]
+  },
+  {
+    "username": "razliv",
+    "password": "123",
+    "pseudo": "galka",
+    "role": "utilisateur",
+    "programmes": [
+      "Danone"
+    ]
+  },
+  {
+    "username": "dodo",
+    "password": "dodo",
+    "pseudo": "dodo",
+    "role": "utilisateur",
+    "programmes": [
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2"
+    ]
+  },
+  {
+    "username": "pat",
+    "password": "pat",
+    "pseudo": "pat",
+    "role": "utilisateur",
+    "programmes": [
+      "programme 3"
+    ]
+  },
+  {
+    "username": "oss177@gmail.fr",
+    "password": "oss117oss",
+    "pseudo": "",
+    "role": "utilisateur",
+    "programmes": [
+      "Programme 4",
+      "Programme 4",
+      "Programme 4"
+    ]
+  },
+  {
+    "username": "andy",
+    "password": "andy",
+    "pseudo": "andy",
+    "role": "utilisateur",
+    "programmes": [
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 1",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2",
+      "programme 2"
+    ]
+  },
+  {
+    "username": "1",
+    "password": "1",
+    "pseudo": "1",
+    "role": "admin"
+  }
+]
