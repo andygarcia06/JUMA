@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd mon-app-client && npm install && npm run build",
+    "postinstall": "npm install --prefix server",
+    "start": "node server/server.js",
     "heroku-postbuild": "cd mon-app-client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andygarcia06/JUMA.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
