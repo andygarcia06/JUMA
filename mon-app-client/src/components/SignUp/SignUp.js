@@ -8,18 +8,23 @@ const SignUpPage = ({ role }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [pseudo, setPseudo] = useState(''); // Ajout d'un état pour le pseudo
+  const [email, setEmail] = useState('');
+const [phoneNumber, setPhoneNumber] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
   const handleSignUp = async () => {
-    console.log({ username, password, pseudo });
-    console.log('Rôle lors de linscription :', role)
+    console.log({ username, password, pseudo, email, phoneNumber });
+    console.log('Rôle lors de l\'inscription :', role)
+  
 
     try {
       const response = await axios.post('http://localhost:3001/signup', {
         username,
         password,
         pseudo,
+        email,
+        phoneNumber,
         role: role, // Utilisez le rôle passé en prop
       });
       
@@ -68,6 +73,23 @@ const SignUpPage = ({ role }) => {
             onChange={(e) => setPseudo(e.target.value)}
           />
         </div>
+        <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        </div>
+        <div>
+        <label>Phone Number:</label>
+        <input
+          type="tel"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+      </div>
+
         <button type="button" onClick={handleSignUp}>
           Sign Up
         </button>

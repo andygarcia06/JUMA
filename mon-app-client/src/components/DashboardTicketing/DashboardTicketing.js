@@ -1,95 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
-import UserContext from '../../contexts/UserContext'; // Importez UserContext
-
-
-import UserIcon from '../UserConnected/UserConnected'; // Assurez-vous que le chemin est correct
-import TicketList from './TicketList/TicketList';
-import TicketFilters from './TicketFilters/TicketFilters';
-import TicketStats from './TicketStats/TicketStats';
-import MenuTicketing from '../ticketing/MenuTickets/MenuTickets'
-import './style.css';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './DashboardTicketing.css'; // Importez votre fichier CSS pour le style
 
 const DashboardTicketing = () => {
-  const user = useSelector((state) => state.user.userData);
-  const [userTickets, setUserTickets] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedTicket, setSelectedTicket] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { state } = location || {};
+  const user = state ? state.user : null;
 
-
-
-  const handleTicketClick = async (ticketId) => {
-    try {
-      // Envoyer une requête pour marquer le ticket comme ouvert
-      await axios.put(`http://localhost:3001/tickets/${ticketId}/open`);
-      console.log("Réponse du serveur:", `http://localhost:3001/tickets/${ticketId}/open`);
-
-  
-      // Mettre à jour l'état local des tickets
-      const updatedTickets = userTickets.map(ticket => 
-        ticket.id === ticketId ? { ...ticket, isOpened: true } : ticket
-      );
-      setUserTickets(updatedTickets);
-    } catch (error) {
-      console.error("Erreur lors de la mise à jour du ticket", error);
-    }
+  const handleTicketsClick = () => {
+    navigate('/support-ticket', { state: { user } });
   };
-  
 
-  useEffect(() => {
+  const handleKnowledgeClick = () => {
+    navigate('/knowledge-management', { state: { user } });
+  };
 
-    console.log('le pseudo user dans dashboard est ')
-    const fetchUserTickets = async () => {
-      setLoading(true);
-      try {
-        const authToken = localStorage.getItem('token');
-        if (user) {
-          const response = await axios.get('http://localhost:3001/tickets', {
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            },
-          });
-
-          const filteredTickets = user.role === 'admin' ? response.data : response.data.filter(ticket => ticket.creator === user.pseudo);
-
-          setUserTickets(filteredTickets.map(ticket => ({ ...ticket, isOpened: false }))); // Initialise isOpened à false
-        } else {
-          setUserTickets([]);
-        }
-      } catch (error) {
-        console.error('Erreur lors de la récupération des tickets', error);
-      }
-      setLoading(false);
-    };
-
-    fetchUserTickets();
-  }, [user]);
-
-  if (loading) {
-    return <div>Chargement des tickets...</div>;
-  }
-
-  console.log('Le pseudo de l’utilisateur dans DashBoard est:', user.pseudo);
+  console.log("Données de l'utilisateur dans DashboardTicketing :", user);
 
   return (
-    <UserContext.Provider value={{ userPseudo: user.pseudo || 'Pseudo inconnu', userTickets }}>
-    <div className="dashboard">
-      <MenuTicketing />
-      <div className="user-connected">
-        {user ? (
-          <UserIcon pseudo={user.pseudo} />
-        ) : (
-          <p>Chargement des données utilisateur...</p>
-        )}
+    <div>
+      <h1>Tableau de bord Ticketing</h1>
+      <div className="sidebar">
+        <nav>
+          <ul>
+            <li>
+              {/* Lien vers SupportTicketing avec les données utilisateur transmises */}
+              <button onClick={handleTicketsClick}>
+                Support Ticketing
+              </button>
+            </li>
+            <li>
+              <button onClick={handleKnowledgeClick}>
+                Gestion des connaissances
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div className='menu-tickets-center'>
-        <TicketFilters />
-        <TicketList tickets={userTickets} />
-        <TicketStats tickets={userTickets} />
+      <div className="content">
+        {/* Contenu spécifique au composant */}
       </div>
     </div>
-  </UserContext.Provider>
   );
 };
 

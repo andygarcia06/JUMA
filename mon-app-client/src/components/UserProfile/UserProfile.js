@@ -78,7 +78,7 @@ function UserProfile({ username, pseudo }) {
         <button onClick={handleSubmit}>Sauvegarder le profil</button>
       </div>
       <div className="trophies-section">
-        <div className="trophy">
+        {/* <div className="trophy">
           <span className="trophy-icon">🏆</span>
           <span className="trophy-count">7</span>
           <span className="trophy-label">Champions</span>
@@ -87,7 +87,7 @@ function UserProfile({ username, pseudo }) {
           <span className="trophy-icon">👨‍🎓</span>
           <span className="trophy-count">4</span>
           <span className="trophy-label">Apprenants</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

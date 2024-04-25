@@ -1,8 +1,13 @@
 /* Base layout */
+body{
+  height: 200vh !important;
+  overflow: auto !important; 
+}
 .box-trophie{
     border: 1px solid rgb(214, 214, 214);
     padding: 20px 40px;
     border-radius: 20px;
+    margin: 20rem;
 }
 
 #champion-span{
@@ -93,4 +98,8 @@
   .level-1, .level-2 { /* Add classes based on completed levels */
     border: 5px solid green;
     border-radius: 50%;
+  }
+
+  .rewards-container{
+    margin:0 20%;
   }
